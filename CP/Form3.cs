@@ -1,139 +1,118 @@
-﻿using NPOI.OpenXmlFormats.Spreadsheet;
-using NPOI.POIFS.Crypt.Dsig;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace CP
 {
     public partial class Form3 : Form
     {
-        string Language;
-        AgataChristie agata;
-        SimonBeckett simon;
-        StephenKing stephen;
-        ArthurConanDoyle arthur;
-        CraigJohnson craig;
+        string FormsLanguage;
+        string RadioLanguage;
+        Author agataChristie;
+        Author simonBecket;
+        Author stephenKing;
+        Author arthurConanDoyle;
+        Author craigJohnson;
 
-        public Form3(string language)
+        public Form3(string formsFormsLanguage)
         {
             InitializeComponent();
-            Language = language;
-            button1.Text = Language == "ENG" ? "Agata Christie" : "Агата Крісті";
-            button2.Text = Language == "ENG" ? "Simon Beckett" : "Саймон Бекетт";
-            button3.Text = Language == "ENG" ? "Stephen King" : "Стівен Кінг";
-            button4.Text = Language == "ENG" ? "Arthur Conan Doyle" : "Артур Конан Дойл";
-            button5.Text = Language == "ENG" ? "Craig Johnson" : "Крейг Джонсон";
-           
-            Language = language;
-            agata = new AgataChristie();
-            SimonBeckett simon = new SimonBeckett();
-            StephenKing stephen = new StephenKing();
-            ArthurConanDoyle arthur = new ArthurConanDoyle();
-            CraigJohnson craig = new CraigJohnson();
-        }
-        public class AgataChristie : Author
-        {
-            public AgataChristie()
-            {
-                    FullName = "Agata Christie";
-                    Birthday = "15.09.1890";
-                    CityandCountry = "Torquay, Great Britain";
-                    Works = "The Mysterious Affair at Styles, Murder on the Orient Express, Death on the Nile, A Murder Is Announced";
-                    Genre = "Detective"; }
-            }
-        }
-        public class SimonBeckett : Author
-        {
-            public SimonBeckett()
-            {
-                FullName = "Simon Beckett";
-                Birthday = "20.04.1960";
-                CityandCountry = "Sheffield, England";
-                Works = "Written in Bone, Whispers of the Dead, The Chemistry of Death, Where There`s Smoke, The Restless Dead, The Calling of the Grave";
-                Genre = "Crime fiction";
-            }
-        }
-        public class StephenKing : Author
-        {
-            public StephenKing()
-            {
-                var Stephen = new Author();
-                FullName = "Stephen Edwin King";
-                Birthday = "21.09.1947";
-                CityandCountry = "Portland, Maine, USA";
-                Works = "It, The Green Mile, Fairy Tale, Outsider, Billy Summers ";
-                Genre = "Dark fantasy, science fiction, psychological suspense";
-            }
-        }
-        public class ArthurConanDoyle : Author
-        {
-            public ArthurConanDoyle()
-            {
-                var Arthur = new Author();
-                FullName = "Arthur Conan Doyle";
-                Birthday = "22.05.1859";
-                CityandCountry = "Edinburgh, Scotland";
-                Works = "The Hound of the Baskervilles, The Lost World, The Adventure of the Final Problem, The Valley of Fear";
-                Genre = "History, fantasy, adventure, science-fiction, crimes, drama and oters";
-            }
-        }
-        public class CraigJohnson : Author
-        {
-            public CraigJohnson()
-            {
-                var Craig = new Author();
-                FullName = "Craig Johnson Allen";
-                Birthday = "16.01.1961";
-                CityandCountry = "Huntington, West Virginia, USA";
-                Works = "The Cold Dish, Death Without Company, As the Crow Files, The Dark House, Hell is Empty";
-                Genre = "Mystery, thrillers";
-            }
-        }
+            FormsLanguage = formsFormsLanguage;
+            RadioLanguage = formsFormsLanguage;
+            button1.Text = FormsLanguage == "ENG" ? "Agata Christie" : "Агата Крісті";
+            button2.Text = FormsLanguage == "ENG" ? "Simon Beckett" : "Саймон Бекетт";
+            button3.Text = FormsLanguage == "ENG" ? "Stephen King" : "Стівен Кінг";
+            button4.Text = FormsLanguage == "ENG" ? "Arthur Conan Doyle" : "Артур Конан Дойл";
+            button5.Text = FormsLanguage == "ENG" ? "Craig Johnson" : "Крейг Джонсон";
 
+            FormsLanguage = formsFormsLanguage;
+            agataChristie = new Author(
+                "Agata Christie",
+                "15.09.1890",
+                "Torquay, Great Britain",
+                "The Mysterious Affair at Styles, Murder on the Orient Express, Death on the Nile, A Murder Is Announced",
+                "Detective"
+            );
+            simonBecket = new Author(
+                "Simon Beckett",
+                "20.04.1960",
+                "Sheffield, England",
+                "Written in Bone, Whispers of the Dead, The Chemistry of Death, Where There`s Smoke, The Restless Dead, The Calling of the Grave",
+                "Crime fiction"
+            );
+            stephenKing = new Author(
+                "Stephen Edwin King",
+                "21.09.1947",
+                "Portland, Maine, USA",
+                "It, The Green Mile, Fairy Tale, Outsider, Billy Summers",
+                "Dark fantasy, science fiction, psychological suspense"
+            );
+            arthurConanDoyle = new Author(
+                "Arthur Conan Doyle",
+                "22.05.1859",
+                "Edinburgh, Scotland",
+                "The Hound of the Baskervilles, The Lost World, The Adventure of the Final Problem, The Valley of Fear",
+                "History, fantasy, adventure, science-fiction, crimes, drama and oters"
+            );
+            craigJohnson = new Author(
+                "Craig Johnson Allen",
+                "16.01.1961",
+                "Huntington, West Virginia, USA",
+                "The Cold Dish, Death Without Company, As the Crow Files, The Dark House, Hell is Empty",
+                "Mystery, thrillers"
+            );
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string AgataCh = Language == "ENG" ? $"FullName: {agata.FullName}\nWas born: {agata.Birthday}\nIn: {agata.CityandCountry}\nHer books: {agata.Works}\nGenre: {agata.Genre}" :
-            $"Повне ім'я: { agata.FullName}\nНародилась: { agata.Birthday}\nВ місті: { agata.CityandCountry}\nЇї книги: { agata.Works}\nЖанр: { agata.Genre}";
+            string AgataCh = RadioLanguage == "ENG"
+                ? $"FullName: {agataChristie.FullName}\nWas born: {agataChristie.Birthday}\nIn: {agataChristie.CityAndCountry}\nHer books: {agataChristie.Works}\nGenre: {agataChristie.Genre}"
+                : $"Повне ім'я: {agataChristie.FullName}\nНародилась: {agataChristie.Birthday}\nВ місті: {agataChristie.CityAndCountry}\nЇї книги: {agataChristie.Works}\nЖанр: {agataChristie.Genre}";
             richTextBox1.Text = AgataCh;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string SimonB = Language == "ENG" ? $"FullName: {simon.FullName}\n Was born: {simon.Birthday}\n In: {simon.CityandCountry}\n His books: {simon.Works}\n Genre: {simon.Genre}" :
-            $"Повне ім'я: {simon.FullName}\n Народився: {simon.Birthday}\n В місті: {simon.CityandCountry}\n Його книги: {simon.Works}\n Жанр: {simon.Genre}";
+            string SimonB = RadioLanguage == "ENG"
+                ? $"FullName: {simonBecket.FullName}\n Was born: {simonBecket.Birthday}\n In: {simonBecket.CityAndCountry}\n His books: {simonBecket.Works}\n Genre: {simonBecket.Genre}"
+                : $"Повне ім'я: {simonBecket.FullName}\n Народився: {simonBecket.Birthday}\n В місті: {simonBecket.CityAndCountry}\n Його книги: {simonBecket.Works}\n Жанр: {simonBecket.Genre}";
             richTextBox1.Text = SimonB;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string StephenK = Language == "ENG" ? $"FullName: {stephen.FullName}\n Was born: {stephen.Birthday}\n In: {stephen.CityandCountry}\n His books: {stephen.Works}\n Genre: {stephen.Genre}" :
-            $"Повне ім'я: {stephen.FullName}\n Народився: {stephen.Birthday}\n В місті: {stephen.CityandCountry}\n Його книги: {stephen.Works}\n Жанр: {stephen.Genre}";
+            string StephenK = RadioLanguage == "ENG"
+                ? $"FullName: {stephenKing.FullName}\n Was born: {stephenKing.Birthday}\n In: {stephenKing.CityAndCountry}\n His books: {stephenKing.Works}\n Genre: {stephenKing.Genre}"
+                : $"Повне ім'я: {stephenKing.FullName}\n Народився: {stephenKing.Birthday}\n В місті: {stephenKing.CityAndCountry}\n Його книги: {stephenKing.Works}\n Жанр: {stephenKing.Genre}";
             richTextBox1.Text = StephenK;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string ArthurC = Language == "ENG" ? $"FullName: {arthur.FullName}\n Was born: {arthur.Birthday}\n In: {arthur.CityandCountry}\n His books: {arthur.Works}\n Genre: {arthur.Genre}" :
-            $"Повне ім'я: {arthur.FullName}\n Народився: {arthur.Birthday}\n В місті: {arthur.CityandCountry}\n  Його книги: {arthur.Works}\n Жанр: {arthur.Genre}";
+            string ArthurC = RadioLanguage == "ENG"
+                ? $"FullName: {arthurConanDoyle.FullName}\n Was born: {arthurConanDoyle.Birthday}\n In: {arthurConanDoyle.CityAndCountry}\n His books: {arthurConanDoyle.Works}\n Genre: {arthurConanDoyle.Genre}"
+                : $"Повне ім'я: {arthurConanDoyle.FullName}\n Народився: {arthurConanDoyle.Birthday}\n В місті: {arthurConanDoyle.CityAndCountry}\n  Його книги: {arthurConanDoyle.Works}\n Жанр: {arthurConanDoyle.Genre}";
             richTextBox1.Text = ArthurC;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            string CraigJ = Language == "ENG" ? $"FullName: {craig.FullName}\n Was born: {craig.Birthday}\n In: {craig.CityandCountry}\n His books: {craig.Works}\n Genre: {craig.Genre}" :
-            $"Повне ім'я: {craig.FullName}\n Народився: {craig.Birthday}\n  В місті: {craig.CityandCountry}\n Його книги: {craig.Works}\n Жанр: {craig.Genre}";
+            string CraigJ = RadioLanguage == "ENG"
+                ? $"FullName: {craigJohnson.FullName}\n Was born: {craigJohnson.Birthday}\n In: {craigJohnson.CityAndCountry}\n His books: {craigJohnson.Works}\n Genre: {craigJohnson.Genre}"
+                : $"Повне ім'я: {craigJohnson.FullName}\n Народився: {craigJohnson.Birthday}\n  В місті: {craigJohnson.CityAndCountry}\n Його книги: {craigJohnson.Works}\n Жанр: {craigJohnson.Genre}";
             richTextBox1.Text = CraigJ;
+        }
+
+        public void changeRadioLanguage(object sender, EventArgs e)
+        {
+            RadioButton radio = (RadioButton)sender;
+            if (radio.Name == "enRadio")
+            {
+                RadioLanguage = "ENG";
+            }
+            else
+            {
+                RadioLanguage = "UKR";
+            }
         }
     }
 }
-   
-

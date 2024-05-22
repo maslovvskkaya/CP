@@ -34,8 +34,8 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.enRadio = new System.Windows.Forms.RadioButton();
+            this.uaRadio = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // button1
@@ -46,6 +46,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Агата Крісті";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -55,6 +56,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Саймон Бекетт";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -64,6 +66,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Стівен Кінг";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -73,6 +76,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "Артур Конан Дойл";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -82,6 +86,7 @@
             this.button5.TabIndex = 4;
             this.button5.Text = "Крейг Джонсон";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // richTextBox1
             // 
@@ -91,33 +96,36 @@
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
             // 
-            // checkBox1
+            // enRadio
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(219, 12);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(73, 20);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "English";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.enRadio.Location = new System.Drawing.Point(206, 8);
+            this.enRadio.Name = "enRadio";
+            this.enRadio.Size = new System.Drawing.Size(104, 24);
+            this.enRadio.TabIndex = 8;
+            this.enRadio.TabStop = true;
+            this.enRadio.Text = "English";
+            this.enRadio.UseVisualStyleBackColor = true;
+            this.enRadio.Click += new System.EventHandler(this.changeRadioLanguage);
             // 
-            // checkBox2
+            // uaRadio
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(347, 12);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(101, 20);
-            this.checkBox2.TabIndex = 7;
-            this.checkBox2.Text = "Українська";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.uaRadio.Location = new System.Drawing.Point(431, 8);
+            this.uaRadio.Name = "uaRadio";
+            this.uaRadio.Size = new System.Drawing.Size(104, 24);
+            this.uaRadio.TabIndex = 9;
+            this.uaRadio.TabStop = true;
+            this.uaRadio.Text = "Українська";
+            this.uaRadio.UseMnemonic = false;
+            this.uaRadio.UseVisualStyleBackColor = true;
+            this.uaRadio.Click += new System.EventHandler(this.changeRadioLanguage);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 445);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.uaRadio);
+            this.Controls.Add(this.enRadio);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -127,9 +135,10 @@
             this.Name = "Form3";
             this.Text = "Form3";
             this.ResumeLayout(false);
-            this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.RadioButton enRadio;
+        private System.Windows.Forms.RadioButton uaRadio;
 
         #endregion
 
@@ -139,7 +148,5 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
     }
 }
