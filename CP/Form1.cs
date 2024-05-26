@@ -10,16 +10,13 @@ namespace CP
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form2 form2 = new Form2("ENG");
-            form2.Show();
-            this.Hide();
-        }
+        private void button1_Click(object sender, EventArgs e) => OpenForm2("ENG");
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) => OpenForm2("UA");
+
+        private void OpenForm2(string language)
         {
-            Form2 form2 = new Form2("UA");
+            Form2 form2 = new Form2(language);
             form2.Show();
             this.Hide();
         }

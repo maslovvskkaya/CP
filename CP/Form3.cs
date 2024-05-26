@@ -102,47 +102,27 @@ namespace CP
             );
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string AgataCh = RadioLanguage == "ENG"
-                ? $"FullName: {agataChristie.FullName}\nWas born: {agataChristie.Birthday}\nIn: {agataChristie.CityAndCountry}\nHer books: {String.Join(", ", agataChristie.Works.Select(b => b.Title))}\nGenre: {agataChristie.Genre}"
-                : $"Повне ім'я: {agataChristie.FullName}\nНародилась: {agataChristie.Birthday}\nВ місті: {agataChristie.CityAndCountry}\nЇї книги: {String.Join(", ", agataChristie.Works.Select(b => b.Title))}\nЖанр: {agataChristie.Genre}";
-            richTextBox1.Text = AgataCh;
-        }
+        private void button1_Click(object sender, EventArgs e) => ShowAuthorInfo(agataChristie);
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string SimonB = RadioLanguage == "ENG"
-                ? $"FullName: {simonBecket.FullName}\n Was born: {simonBecket.Birthday}\n In: {simonBecket.CityAndCountry}\n His books: {String.Join(", ", simonBecket.Works.Select(b => b.Title))}\n Genre: {simonBecket.Genre}"
-                : $"Повне ім'я: {simonBecket.FullName}\n Народився: {simonBecket.Birthday}\n В місті: {simonBecket.CityAndCountry}\n Його книги: {String.Join(", ", simonBecket.Works.Select(b => b.Title))}\n Жанр: {simonBecket.Genre}";
-            richTextBox1.Text = SimonB;
-        }
+        private void button2_Click(object sender, EventArgs e) => ShowAuthorInfo(simonBecket);
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            string StephenK = RadioLanguage == "ENG"
-                ? $"FullName: {stephenKing.FullName}\n Was born: {stephenKing.Birthday}\n In: {stephenKing.CityAndCountry}\n His books: {String.Join(", ", stephenKing.Works.Select(b => b.Title))}\n Genre: {stephenKing.Genre}"
-                : $"Повне ім'я: {stephenKing.FullName}\n Народився: {stephenKing.Birthday}\n В місті: {stephenKing.CityAndCountry}\n Його книги: {String.Join(", ", stephenKing.Works.Select(b => b.Title))}\n Жанр: {stephenKing.Genre}";
-            richTextBox1.Text = StephenK;
-        }
+        private void button3_Click(object sender, EventArgs e) => ShowAuthorInfo(stephenKing);
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            string ArthurC = RadioLanguage == "ENG"
-                ? $"FullName: {arthurConanDoyle.FullName}\n Was born: {arthurConanDoyle.Birthday}\n In: {arthurConanDoyle.CityAndCountry}\n His books: {String.Join(", ", arthurConanDoyle.Works.Select(b => b.Title))}\n Genre: {arthurConanDoyle.Genre}"
-                : $"Повне ім'я: {arthurConanDoyle.FullName}\n Народився: {arthurConanDoyle.Birthday}\n В місті: {arthurConanDoyle.CityAndCountry}\n  Його книги: {String.Join(", ", arthurConanDoyle.Works.Select(b => b.Title))}\n Жанр: {arthurConanDoyle.Genre}";
-            richTextBox1.Text = ArthurC;
-        }
+        private void button4_Click(object sender, EventArgs e) => ShowAuthorInfo(arthurConanDoyle);
 
         private void button5_Click(object sender, EventArgs e)
         {
-            string CraigJ = RadioLanguage == "ENG"
-                ? $"FullName: {craigJohnson.FullName}\n Was born: {craigJohnson.Birthday}\n In: {craigJohnson.CityAndCountry}\n His books: {String.Join(", ", craigJohnson.Works.Select(b => b.Title))}\n Genre: {craigJohnson.Genre}"
-                : $"Повне ім'я: {craigJohnson.FullName}\n Народився: {craigJohnson.Birthday}\n  В місті: {craigJohnson.CityAndCountry}\n Його книги: {String.Join(", ", craigJohnson.Works.Select(b => b.Title))}\n Жанр: {craigJohnson.Genre}";
-            richTextBox1.Text = CraigJ;
+            ShowAuthorInfo(craigJohnson);
         }
 
-        public void changeRadioLanguage(object sender, EventArgs e)
+        private void ShowAuthorInfo(Author author)
+        {
+            richTextBox1.Text = RadioLanguage == "ENG"
+                ? $"FullName: {author.FullName}\n Was born: {author.Birthday}\n In: {author.CityAndCountry}\n His books: {String.Join(", ", author.Works.Select(b => b.Title))}\n Genre: {author.Genre}"
+                : $"Повне ім'я: {author.FullName}\n Народився: {author.Birthday}\n  В місті: {author.CityAndCountry}\n Його книги: {String.Join(", ", author.Works.Select(b => b.Title))}\n Жанр: {author.Genre}";
+        }
+
+        public void ChangeRadioLanguage(object sender, EventArgs e)
         {
             RadioButton radio = (RadioButton)sender;
             if (radio.Name == "enRadio")

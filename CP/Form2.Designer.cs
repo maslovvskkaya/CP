@@ -35,9 +35,9 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.button6 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // button1
@@ -117,22 +117,12 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(24, 259);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(97, 20);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "Усі цитати";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(24, 285);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(140, 20);
+            this.checkBox2.Size = new System.Drawing.Size(142, 21);
             this.checkBox2.TabIndex = 8;
             this.checkBox2.Text = "Улюблені цитати";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -146,6 +136,16 @@
             this.button6.Text = "Книги";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(24, 259);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(99, 21);
+            this.checkBox1.TabIndex = 7;
+            this.checkBox1.Text = "Усі цитати";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // Form2
             // 
@@ -166,7 +166,6 @@
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

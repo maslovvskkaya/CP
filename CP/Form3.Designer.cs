@@ -105,7 +105,7 @@
             this.enRadio.TabStop = true;
             this.enRadio.Text = "English";
             this.enRadio.UseVisualStyleBackColor = true;
-            this.enRadio.Click += new System.EventHandler(this.changeRadioLanguage);
+            this.enRadio.Click += new System.EventHandler(this.ChangeRadioLanguage);
             // 
             // uaRadio
             // 
@@ -117,7 +117,7 @@
             this.uaRadio.Text = "Українська";
             this.uaRadio.UseMnemonic = false;
             this.uaRadio.UseVisualStyleBackColor = true;
-            this.uaRadio.Click += new System.EventHandler(this.changeRadioLanguage);
+            this.uaRadio.Click += new System.EventHandler(this.ChangeRadioLanguage);
             // 
             // Form3
             // 
